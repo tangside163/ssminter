@@ -1,11 +1,17 @@
 package org.tangsi.user;
 
+import java.util.HashMap;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.AbstractView;
+import org.tangsi.function.MyExcelView;
+import org.tangsi.function.MyPdfView;
 import org.tangsi.user.service.UserService;
 import org.tangsi.user.vo.UserVo;
 
@@ -39,8 +45,22 @@ public class UserController
 	{
 		UserVo user = this.userService.getUserById(Long.parseLong(userId));
 		request.setAttribute("user", user);
-		//return "user/user.jsp";
+		// return "user/user.jsp";
 		return "user/user.ftl";
+	}
+
+	@RequestMapping("/genexcel")
+	public ModelAndView generateExcel()
+	{
+		AbstractView excelView = new MyExcelView();
+		return new ModelAndView(excelView, new HashMap<String, String>());
+	}
+
+	@RequestMapping("/genpdf")
+	public ModelAndView generatePdf()
+	{
+		AbstractView pdfView = new MyPdfView();
+		return new ModelAndView(pdfView, new HashMap<String, String>());
 	}
 
 }
