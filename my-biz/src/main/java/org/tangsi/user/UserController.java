@@ -39,7 +39,8 @@ public class UserController
 	{
 		UserVo user = this.userService.getUserById(Long.parseLong(userId));
 		request.setAttribute("user", user);
-		return "user/user.jsp";
+		//return "user/user.jsp";
+		return "user/user.ftl";
 	}
 
 }
