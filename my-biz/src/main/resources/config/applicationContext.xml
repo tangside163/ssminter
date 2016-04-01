@@ -97,6 +97,6 @@
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>
 
-
+	<import resource="classpath:config/springmvc.xml"/>
 </beans>           
            

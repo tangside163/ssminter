@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.tangsi.user.service.UserService;
 import org.tangsi.user.vo.UserVo;
@@ -25,9 +26,18 @@ public class UserController
 	@Autowired
 	private UserService userService;
 
+	@RequestMapping("/detail")
 	public String showUser(String id, HttpServletRequest request)
 	{
 		UserVo user = this.userService.getUserById(Long.parseLong(id));
+		request.setAttribute("user", user);
+		return "user/user.jsp";
+	}
+
+	@RequestMapping("/detail/{id}")
+	public String showUser2(@PathVariable("id") String userId, HttpServletRequest request)
+	{
+		UserVo user = this.userService.getUserById(Long.parseLong(userId));
 		request.setAttribute("user", user);
 		return "user/user.jsp";
 	}
