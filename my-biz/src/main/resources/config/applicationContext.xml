@@ -98,5 +98,6 @@
 	</bean>
 
 	<import resource="classpath:config/springmvc.xml"/>
+	<import resource="classpath:config/schedule_quartz.xml"/>
 </beans>           
            

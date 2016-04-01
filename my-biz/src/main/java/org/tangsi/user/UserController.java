@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.AbstractView;
 import org.tangsi.function.MyExcelView;
@@ -61,6 +62,12 @@ public class UserController
 	{
 		AbstractView pdfView = new MyPdfView();
 		return new ModelAndView(pdfView, new HashMap<String, String>());
+	}
+	
+	@RequestMapping("/addJob")
+	public void addJob(String jobName, @RequestParam("groupName") String jobGroupName, String cron)
+	{
+		
 	}
 
 }
