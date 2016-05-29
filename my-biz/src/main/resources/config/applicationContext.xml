@@ -12,12 +12,14 @@
 
 	<context:component-scan base-package="org.tangsi"></context:component-scan>
 
+	<!-- 开启spring载入时织入 -->
+	<context:load-time-weaver />
+
 	<bean id="propertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location" value="classpath:config/jdbc.properties" />
 	</bean>
 
-	<mvc:annotation-driven />
 
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
@@ -97,7 +99,7 @@
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>
 
-	<import resource="classpath:config/springmvc.xml"/>
-	<import resource="classpath:config/schedule_quartz.xml"/>
+	<import resource="classpath:config/springmvc.xml" />
+	<import resource="classpath:config/schedule_quartz.xml" />
 </beans>           
            

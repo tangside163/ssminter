@@ -1,6 +1,7 @@
 package org.tangsi.user;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.AbstractView;
 import org.tangsi.function.MyExcelView;
@@ -27,23 +29,20 @@ import org.tangsi.user.vo.UserVo;
 
 @Controller
 @RequestMapping("/user")
-public class UserController
-{
+public class UserController {
 
 	@Autowired
 	private UserService userService;
 
 	@RequestMapping("/detail")
-	public String showUser(String id, HttpServletRequest request)
-	{
+	public String showUser(String id, HttpServletRequest request) {
 		UserVo user = this.userService.getUserById(Long.parseLong(id));
 		request.setAttribute("user", user);
 		return "user/user.jsp";
 	}
 
 	@RequestMapping("/detail/{id}")
-	public String showUser2(@PathVariable("id") String userId, HttpServletRequest request)
-	{
+	public String showUser2(@PathVariable("id") String userId, HttpServletRequest request) {
 		UserVo user = this.userService.getUserById(Long.parseLong(userId));
 		request.setAttribute("user", user);
 		// return "user/user.jsp";
@@ -51,23 +50,35 @@ public class UserController
 	}
 
 	@RequestMapping("/genexcel")
-	public ModelAndView generateExcel()
-	{
+	public ModelAndView generateExcel() {
 		AbstractView excelView = new MyExcelView();
 		return new ModelAndView(excelView, new HashMap<String, String>());
 	}
 
 	@RequestMapping("/genpdf")
-	public ModelAndView generatePdf()
-	{
+	public ModelAndView generatePdf() {
 		AbstractView pdfView = new MyPdfView();
 		return new ModelAndView(pdfView, new HashMap<String, String>());
 	}
-	
+
 	@RequestMapping("/addJob")
-	public void addJob(String jobName, @RequestParam("groupName") String jobGroupName, String cron)
-	{
-		
+	public void addJob(String jobName, @RequestParam("groupName") String jobGroupName, String cron) {
+
+	}
+
+	/**
+	 * 返回json数据
+	 * 
+	 * @return
+	 */
+	@RequestMapping("/getUser")
+	@ResponseBody
+	public Map<String, Object> getUser() {
+		Map<String, Object> map = new HashMap<>();
+		map.put("username", "ts");
+		map.put("age", 24);
+		map.put("country", "中国");
+		return map;
 	}
 
 }
