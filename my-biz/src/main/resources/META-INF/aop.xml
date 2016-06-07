@@ -6,14 +6,14 @@
 	<weaver>
 
 		<!-- only weave classes in our application-specific packages -->
-		<include within="foo.*" />
+		<include within="org.tangsi.foo.*" />
 
 	</weaver>
 
 	<aspects>
 
 		<!-- weave in just this aspect -->
-		<aspect name="foo.ProfilingAspect" />
+		<aspect name="org.tangsi.foo.ProfilingAspect" />
 
 	</aspects>
 

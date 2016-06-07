@@ -161,6 +161,15 @@
 			<version>2.6</version>
 		</dependency>
 
+
+		<!-- 不依赖与tomcat容器,需配置在jvm参数中的javaagent载入时织入 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-instrument</artifactId>
+			<version>${spring-version}</version>
+		</dependency>
+
+		<!-- 支持tomcat容器的载入时织入依赖，需要配置到${tomcat_home}/lib目录下 -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-instrument-tomcat</artifactId>

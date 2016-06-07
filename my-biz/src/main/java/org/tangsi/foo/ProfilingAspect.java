@@ -1,4 +1,4 @@
-package foo;
+package org.tangsi.foo;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -24,7 +24,7 @@ public class ProfilingAspect {
 
 	}
 
-	@Pointcut("execution(public * foo..*.*(..))")
+	@Pointcut("execution(public * org.tangsi..*.*(..))")
 	public void pointCut() {
 
 	}
