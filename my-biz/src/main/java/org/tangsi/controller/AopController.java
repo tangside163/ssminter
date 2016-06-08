@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.tangsi.foo.Foo;
+import org.tangsi.user.vo.UserVo;
 
 /**
  * @author numb
@@ -21,13 +21,15 @@ public class AopController
 
 	@RequestMapping("/a")
 	@ResponseBody
-	public String test1(HttpServletRequest request, String name, int age)
+	public UserVo test1(HttpServletRequest request, String name, int age)
 	{
 
-		Foo foo = new Foo();
-		foo.run();
-		return "success";
 
+		UserVo user = new UserVo();
+		user.setName(name);
+		user.setAge(age);
+
+		return user;
 	}
 
 }

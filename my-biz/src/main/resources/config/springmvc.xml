@@ -15,11 +15,27 @@
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 
+
 	<mvc:annotation-driven>
 		<mvc:message-converters register-defaults="false">
 			<bean
 				class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
 				<property name="supportedMediaTypes" value="text/html;charset=utf-8"></property> <!-- 避免ie出现下载文件的情况 -->
+
+				<property name="fastJsonConfig">
+					<bean class="com.alibaba.fastjson.support.config.FastJsonConfig">
+						<property name="serializerFeatures">
+							<array>
+								<!-- <bean id="enumPrettyFormat"
+									class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean">
+									<property name="staticField"
+										value="com.alibaba.fastjson.serializer.SerializerFeature.PrettyFormat"></property>
+								</bean> -->
+							</array>
+						</property>
+					</bean>
+				</property>
+
 			</bean>
 		</mvc:message-converters>
 	</mvc:annotation-driven>

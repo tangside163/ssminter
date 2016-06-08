@@ -6,26 +6,31 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 
 @Aspect
-public class ProfilingAspect {
+public class ProfilingAspect
+{
 
 	@Around("pointCut()")
-	public Object around(ProceedingJoinPoint joinPoint) {
+	public Object around(ProceedingJoinPoint joinPoint)
+	{
 
-		System.out.println("执行前");
+		System.out.println("执行前" + joinPoint.getSignature().getName());
 		Object retVal = null;
-		try {
+		try
+		{
 			retVal = joinPoint.proceed();
-		} catch (Throwable e) {
+		} catch (Throwable e)
+		{
 			e.printStackTrace();
 		}
 
-		System.out.println("执行后");
+		System.out.println("执行后" + joinPoint.getSignature().getName());
 		return retVal;
 
 	}
 
 	@Pointcut("execution(public * org.tangsi..*.*(..))")
-	public void pointCut() {
+	public void pointCut()
+	{
 
 	}
 
