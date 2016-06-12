@@ -18,6 +18,7 @@ import org.tangsi.user.vo.UserVo;
 public class SpringFrameWorkTest
 {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args)
 	{
 		@SuppressWarnings("resource")
