@@ -18,6 +18,12 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>myparent</groupId>
+			<artifactId>my-common</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<finalName>my-biz</finalName>
