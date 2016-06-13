@@ -7,13 +7,13 @@
 	</Properties>
 
 	<Appenders>
-		<File name="access" fileName="d:/access_${date:yyyy-MM-dd}.log">
+		<File name="access" fileName="d:/access_${date:yyyy-MM-dd}.log" immediateFlush="false">
 			<PatternLayout pattern="%d [%t] %-5p %C(%F:%L) - %m%n" />
 		</File>
-		<File name="framework" fileName="d:/framework.log">
+		<File name="framework" fileName="d:/framework.log" immediateFlush="false">
 			<PatternLayout pattern="%d [%t] %-5p %C(%F:%L) - %m%n" />
 		</File>
-		<File name="biz" fileName="d:/numb_biz_${date:yyyy-MM-dd}.log">
+		<File name="biz" fileName="d:/numb_biz_${date:yyyy-MM-dd}.log" immediateFlush="false">
 			<PatternLayout pattern="%d [%t] %-5p %C(%F:%L) - %m%n" />
 		</File>
 		<Console name="STDOUT" target="SYSTEM_OUT">
