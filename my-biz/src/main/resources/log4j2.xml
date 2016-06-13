@@ -7,21 +7,15 @@
 	</Properties>
 
 	<Appenders>
-		<File name="access" fileName="d:/access.log">
+		<File name="access" fileName="d:/access_${date:yyyy-MM-dd}.log">
 			<PatternLayout pattern="%d [%t] %-5p %C(%F:%L) - %m%n" />
 		</File>
 		<File name="framework" fileName="d:/framework.log">
 			<PatternLayout pattern="%d [%t] %-5p %C(%F:%L) - %m%n" />
 		</File>
-		<RollingFile name="biz" fileName="d:/numb_biz.log"
-			filePattern="d:/numb_biz_%d{yyyy-MM-dd}_%i.log">
+		<File name="biz" fileName="d:/numb_biz_${date:yyyy-MM-dd}.log">
 			<PatternLayout pattern="%d [%t] %-5p %C(%F:%L) - %m%n" />
-			<Policies>
-				<!-- 每24小时更新一次 -->
-				<TimeBasedTriggeringPolicy modulate="true"
-					interval="24" />
-			</Policies>
-		</RollingFile>
+		</File>
 		<Console name="STDOUT" target="SYSTEM_OUT">
 			<PatternLayout pattern="%d [%t] %-5p %C(%F:%L) - %m%n" />
 		</Console>
