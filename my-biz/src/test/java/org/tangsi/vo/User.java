@@ -1,24 +1,41 @@
 package org.tangsi.vo;
 
-public class User {
+public class User
+{
 
-	private  String name;
+	private long id;
+
+	private String name;
 
 	private int age;
 
-	public int getAge() {
+	public int getAge()
+	{
 		return age;
 	}
 
-	public void setAge(int age) {
+	public void setAge(int age)
+	{
 		this.age = age;
 	}
 
-	public String getName() {
+	public long getId()
+	{
+		return id;
+	}
+
+	public void setId(long id)
+	{
+		this.id = id;
+	}
+
+	public String getName()
+	{
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setName(String name)
+	{
 		this.name = name;
 	}
 

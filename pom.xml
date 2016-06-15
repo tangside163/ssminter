@@ -197,6 +197,21 @@
 			<version>${spring-version}</version>
 		</dependency>
 
+		<!-- dubbo -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo</artifactId>
+			<version>2.5.3</version>
+			
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring</artifactId>
+				</exclusion>
+			</exclusions>
+
+		</dependency>
+
 	</dependencies>
 
 

@@ -58,12 +58,6 @@
 				</includes>
 				<filtering>true</filtering>
 			</resource>
-			<resource>
-				<directory>${project.build.directory}</directory>
-				<includes>
-					<include>*.xml</include>
-				</includes>
-			</resource>
 		</resources>
 	</build>
 </project>
